@@ -1,0 +1,21 @@
+<project name="lab2" default="compile">
+<target name = "compile" depends = "clean">
+	<javac srcdir="."/>
+ </target>
+
+
+<target name = "clean">
+	<delete>
+	  <fileset dir="." includes ="**/*.class"/>
+	  <delete dir = "META-INF"/>
+        </delete>
+       </target>
+	   
+<target name = "jar">
+	<jar destfile = "project1.jar">
+		 <fileset dir = "." includes = "**/*.java"/>
+		 <fileset dir = "." includes = "build.xml"/>
+	</jar>
+</target>
+</project>
+ 

@@ -1,0 +1,33 @@
+<project name="project3" default="compile" basedir=".">
+	
+	<target name="clean">
+		<delete includeEmptyDirs="true" failonerror="false">
+			<fileset dir="." includes="**/*.class"/>
+			<fileset dir="." includes="**/*.*~" defaultexcludes="no"/>
+			<fileset dir="." includes="**/*.txt"/>
+			<fileset dir="META-INF"/>
+		</delete>
+    	</target>	
+	
+	<target name="compile" depends="clean">
+    	<javac srcdir="."/>
+	</target>
+
+	<target name = "jar" depends="compile">
+		<jar destfile = "project3.jar" includes="**/*.java build.xml" basedir=".">
+		</jar>
+	</target>
+	
+	<target name="run" depends="compile">
+		<java classname="Driver">
+			<classpath>
+				<pathelement location="."/>
+			</classpath>
+		</java>
+	</target>
+	
+	<target name = "author">
+		<echo message = "Kyle Davis"/>
+	</target>
+
+</project>
